@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sristi's Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Sidebar Toggle -->
+  <div id="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+
+  <!-- Dark Mode -->
+  <div class="dark-toggle">
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle">
+      <span class="slider round"></span>
+    </label>
+    <span id="dark-label">Dark Mode</span>
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul class="nav-icons">
+        <li onclick="showSection('dashboard')"><i class="fas fa-chart-line"></i><span>Dashboard</span></li>
+        <li onclick="showSection('about')"><i class="fas fa-user"></i><span>About</span></li>
+        <li onclick="showSection('quiz')"><i class="fas fa-question-circle"></i><span>Quiz</span></li>
+        <li onclick="showSection('weather')"><i class="fas fa-cloud-sun"></i><span>Weather</span></li>
+        <li onclick="showSection('credentials')"><i class="fas fa-id-badge"></i><span>Credentials</span></li>
+        <li onclick="showSection('connect')"><i class="fas fa-link"></i><span>Connect</span></li>
+      </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main-content">
+      <!-- Dashboard -->
+      <section id="dashboard" class="active-section">
+        <h2>📊 Dashboard</h2>
+        <div class="dashboard-cards">
+          <div class="card"><h3>Quiz Attempts</h3><p id="quiz-count">0</p></div>
+          <div class="card"><h3>📝 Last Quiz Topic</h3><p id="last-topic">N/A</p></div>
+          <div class="card"><h3>📊 Last Score</h3><p id="last-score">N/A</p></div>
+          <div class="card"><h3>🌍 Last City</h3><p id="last-city">N/A</p></div>
+        </div>
+      </section>
+
+      <!-- About Me -->
+      <section id="about" class="hidden">
+        <h2>👩‍💻 About Me</h2>
+        <div class="about-card">
+          <div class="about-text">
+            <p><strong>Name:</strong> Sristi Singh</p>
+            
+            <p><strong>Branch:</strong> ECE (2022–2026)</p>
+            <p><strong>GPA:</strong> 9.0</p>
+            <p><strong>college:</strong>KIET group of institutions(AKTU)</p>
+          </div>
+        </div>
+        <h3 style="margin-top: 30px;">📂 Key Projects</h3>
+<button id="toggle-projects" class="project-toggle">🔽 View Projects</button>
+
+<div id="projects-container" class="project-list">
+  <div class="project">
+    <h4>🗑️ Smart Dustbin – IoT System</h4>
+    <p>Sensor-based waste bin with automatic lid and real-time alert.</p>
+  </div>
+  <div class="project">
+    <h4>💧 Smart Water Monitor</h4>
+    <p>Embedded system to monitor pH, TDS, and turbidity with app interface.</p>
+  </div>
+  <div class="project">
+    <h4>🧠 Digital Logic Simulation</h4>
+    <p>Designed and simulated logic circuits in Verilog using Cadence tools.</p>
+  </div>
+</div>
+</section>
+
+      <!-- Quiz -->
+      <section id="quiz" class="hidden">
+        <h2>📝 Quiz</h2>
+        <select id="quiz-topic">
+          <option value="">-- Select Topic --</option>
+          <option value="html">HTML</option>
+          <option value="js">JavaScript</option>
+        </select>
+        <button onclick="startQuiz()">Start</button>
+        <form id="quiz-form" class="hidden"></form>
+        <button onclick="submitQuiz()">Submit</button>
+        <div id="quiz-result"></div>
+      </section>
+
+      <!-- Weather -->
+      <section id="weather" class="hidden">
+        <h2>🌤️ Weather</h2>
+        <input type="text" id="city" placeholder="Enter city" />
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weather-result"></div>
+      </section>
+
+      <!-- Credentials -->
+      <section id="credentials" class="hidden">
+        <h2>🛡️ Credentials</h2>
+        <div class="skills-cert-grid">
+          <div>
+            <h3>📜 Certifications</h3>
+            <ul>
+              <li>NPTEL – Verilog</li>
+              <li>MATLAB – Simulink</li>
+              <li>LinkedIn – VLSI Basics</li>
+              <li>SDFS Soft Skills</li>
+            </ul>
+          </div>
+          <div>
+            <h3>💻 Technical Skills</h3>
+            <ul>
+              <li>Languages: C/C++, Verilog, Python</li>
+              <li>Embedded: Arduino, IoT</li>
+              <li>Tools: Vivado, ModelSim, VS Code</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect -->
+      <section id="connect" class="hidden">
+        <h2>🌐 Connect With Me</h2>
+        <div class="social-links">
+          <a href="mailto:srismis12thi@gmail.com">📧 Email</a>
+          <a href="https://linkedin.com/in/sristi-singhece" target="_blank">🔗 LinkedIn</a>
+          <a href="https://github.com/sristi15-22" target="_blank">💻 GitHub</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
